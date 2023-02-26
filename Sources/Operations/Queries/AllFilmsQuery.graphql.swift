@@ -13,6 +13,7 @@ public class AllFilmsQuery: GraphQLQuery {
           __typename
           films {
             __typename
+            id
             title
             director
             releaseDate
@@ -76,12 +77,15 @@ public class AllFilmsQuery: GraphQLQuery {
 
         public static var __parentType: ApolloAPI.ParentType { StarWarsAPI.Objects.Film }
         public static var __selections: [ApolloAPI.Selection] { [
+          .field("id", StarWarsAPI.ID.self),
           .field("title", String?.self),
           .field("director", String?.self),
           .field("releaseDate", String?.self),
           .field("speciesConnection", SpeciesConnection?.self),
         ] }
 
+        /// The ID of an object
+        public var id: StarWarsAPI.ID { __data["id"] }
         /// The title of this film.
         public var title: String? { __data["title"] }
         /// The name of the director of this film.
