@@ -3,12 +3,12 @@
 
 @_exported import ApolloAPI
 
-public class Query: GraphQLQuery {
-  public static let operationName: String = "Query"
+public class AllFilmsQuery: GraphQLQuery {
+  public static let operationName: String = "AllFilmsQuery"
   public static let document: ApolloAPI.DocumentType = .notPersisted(
     definition: .init(
       #"""
-      query Query {
+      query AllFilmsQuery {
         allFilms {
           __typename
           films {
